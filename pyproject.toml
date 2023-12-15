@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "anti-distraction-bot"
+version = "0.1.0"
+description = ""
+authors = ["michael.sutherland <michael.sutherland@foundry.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
