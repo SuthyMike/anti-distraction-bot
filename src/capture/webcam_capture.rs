@@ -26,23 +26,10 @@ impl WebcamCapture {
         })
     }
 
-    pub fn show_frames(&mut self) -> Result<()> {
-        loop {
-            let mut frame = core::Mat::default();
-            self.capture.read(&mut frame)?;
-            if frame.empty() {
-                continue;
-            }
-
-            highgui::imshow(&self.window_name, &frame)?;
-
-            let key = highgui::wait_key(10)?;
-            // Escape key pressed
-            if key == 27 {
-                break;
-            }
-        }
-        Ok(())
+    pub fn get_frame(&mut self) -> Result<core::Mat> {
+        let mut frame = core::Mat::default();
+        self.capture.read(&mut frame)?;
+        Ok(frame)
     }
 
     pub fn release(&mut self) -> Result<()> {
